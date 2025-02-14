@@ -1,0 +1,37 @@
+{
+    "fileTypes": {
+        "include": [
+            "*.js",
+            "*.json",
+            "*.html",
+            "*.css",
+            "*.md"
+        ]
+    },
+    "search": {
+        "include": [
+            "manifest.json",
+            "content.js",
+            "background.js",
+            "*.js",
+            "*.html",
+            "*.css"
+        ]
+    },
+    "format": {
+        "javascript": {
+            "indent": 2,
+            "quotes": "single"
+        },
+        "json": {
+            "indent": 2
+        }
+    },
+    "ignore": [
+        "node_modules",
+        "dist",
+        "build",
+        ".git",
+        "*.zip"
+    ]
+}

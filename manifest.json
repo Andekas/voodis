@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Voodis",
+  "version": "1.0",
+  "description": "Lisab sõna 'voodis' peamiste Eesti uudisteportaalide pealkirjade lõppu",
+  "permissions": ["activeTab"],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.postimees.ee/*",
+        "*://*.delfi.ee/*",
+        "*://*.err.ee/*",
+        "*://*.uueduudised.ee/*",
+        "*://*.ohtuleht.ee/*",
+        "*://*.telegram.ee/*",
+        "*://reporter.kanal2.ee/*"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "32": "icon32.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+} 

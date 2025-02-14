@@ -66,10 +66,23 @@ function addVoodis(text) {
         return text;
     }
 
-    // Standardize quotes first - replace „" and "" with ""
+    // Standardize quotes first - replace all quote variants with standard quotes
     let trimmedText = text.trim()
+    .replace(/[“]/g, '"') // closing quotes (both types)
         .replace(/[„]/g, '"')    // opening quote
-        .replace(/[“]/g, '"');  // closing quotes (both types)
+        .replace(/[""]/g, '"');  // closing quotes
+
+    // Handle text with punctuation followed by quotes
+    // Example: "Karjääripööre viis maailma vanima ameti juurde. "Sinu mees ei peta sind kunagi prostituudiga.""
+    const punctBeforeQuoteMatch = trimmedText.match(/^(.+?)([.!?,…]+)\s*(["«])(.*?)([.!?,…]+)?(["»])(\s*\([^)]+\))?\s*$/);
+    if (punctBeforeQuoteMatch) {
+        const [_, mainText, firstPunct, openQuote, quoteContent, punctuation = '', closeQuote, parentheses = ''] = punctBeforeQuoteMatch;
+        // Convert back to original quote style if it was „"
+        if (text.includes('„')) {
+            return `${mainText}${firstPunct} „${quoteContent} voodis${punctuation}"${parentheses}`;
+        }
+        return `${mainText}${firstPunct} ${openQuote}${quoteContent} voodis${punctuation}${closeQuote}${parentheses}`;
+    }
 
     // Handle text with colon followed by quotes
     // Example: '25 AASTAT SÕPRUST! Näitleja: "Elada tuleb nüüd ja praegu!"'

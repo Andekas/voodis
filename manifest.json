@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Voodis",
-  "version": "1.1",
+  "version": "1.2",
   "description": "Lisab sõna 'voodis' peamiste Eesti uudisteportaalide pealkirjade lõppu",
   "permissions": [],
   "content_scripts": [

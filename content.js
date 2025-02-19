@@ -32,10 +32,12 @@ const SITE_CONFIGS = {
     },
     'err.ee': {
         headlineSelectors: [
-            'h2 span:not(.extra-header)',
+            'h2 span:first-of-type:not(.extra-header)',
             'h2.news-article a',
             'h1:not(.block-header-small):not(.block-header)',
-            'article h2',
+            '.playlist-title span',
+            'article h2.one-font.header-font',
+            '.category-news-header a'
      ],
     },
     'uueduudised.ee': {
